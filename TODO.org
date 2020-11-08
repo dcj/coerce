@@ -1,0 +1,3 @@
+* TODO Refactor specific coersions into seperate namespaces
+* TODO Add support for PostGIS
+* TODO https://stackoverflow.com/questions/39585510/using-clojure-multimethods-defined-across-multiple-namespaces
