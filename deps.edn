@@ -1,4 +1,4 @@
-{:paths ["src" "resources"]
+{:paths ["src"]
 
  :mvn/repos {"acn-snapshots" {:url "https://repo.deps.co/aircraft-noise/snapshots"}
              "acn-releases"  {:url "https://repo.deps.co/aircraft-noise/releases"}}
