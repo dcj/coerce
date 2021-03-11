@@ -31,7 +31,9 @@
                     :version     :mvn/version
                     :sync-pom    true}}
 
-  :deploy {:extra-deps {com.dcj/deps-deploy {:mvn/version "2.0.999-SNAPSHOT"}}
+  :deploy {:extra-deps {com.dcj/deps-deploy
+                        {:git/url "https://github.com/dcj/deps-deploy.git"
+                         :sha "978cfc94ea888a2a8c336855c0a98fb94e65b8ad"}}
            :exec-fn deps-deploy.deps-deploy/deploy
            :exec-args {:installer :remote
                        :sign-releases? false
