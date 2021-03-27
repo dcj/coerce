@@ -4,14 +4,14 @@
              "acn-releases"  {:url "https://repo.deps.co/aircraft-noise/releases"}}
 
  :deps
- {org.clojure/clojure         {:mvn/version "1.10.3"}
-  clojure.java-time           {:mvn/version "0.3.2"}
-  org.threeten/threeten-extra {:mvn/version "1.6.0"}
-  org.postgresql/postgresql   {:mvn/version "42.2.19"}
-  net.postgis/postgis-jdbc    {:mvn/version "2.5.0"}
-  seancorfield/next.jdbc      {:mvn/version "1.1.643"}
-  factual/geo                 {:mvn/version "3.0.1"}
-  cheshire                    {:mvn/version "5.10.0"}
+ {org.clojure/clojure                 {:mvn/version "1.10.3"}
+  clojure.java-time/clojure.java-time {:mvn/version "0.3.2"}
+  org.threeten/threeten-extra         {:mvn/version "1.6.0"}
+  org.postgresql/postgresql           {:mvn/version "42.2.19"}
+  net.postgis/postgis-jdbc            {:mvn/version "2.5.0"}
+  com.github.seancorfield/next.jdbc   {:mvn/version "1.1.646"}
+  factual/geo                         {:mvn/version "3.0.1"}
+  cheshire/cheshire                   {:mvn/version "5.10.0"}
   }
 
  :aliases
@@ -21,9 +21,7 @@
   :jar/filename    "coerce.jar"
 
   :jar {:replace-deps
-        {com.github.seancorfield/depstar ; 2.0.next:
-         {:git/url "https://github.com/seancorfield/depstar"
-          :sha "5f4df9ffece4769d01559f7914bd88de024e1348"}}
+        {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
         :exec-fn hf.depstar/jar
         :exec-args {:jar         :jar/filename
                     :artifact-id :mvn/artifact-id
@@ -33,7 +31,7 @@
 
   :deploy {:extra-deps {com.dcj/deps-deploy
                         {:git/url "https://github.com/dcj/deps-deploy.git"
-                         :sha "978cfc94ea888a2a8c336855c0a98fb94e65b8ad"}}
+                         :sha "49f1da003208d615d52c06164401e6fb3d9ba853"}}
            :exec-fn deps-deploy.deps-deploy/deploy
            :exec-args {:installer :remote
                        :sign-releases? false
