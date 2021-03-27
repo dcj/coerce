@@ -31,11 +31,11 @@
 
   :deploy {:extra-deps {com.dcj/deps-deploy
                         {:git/url "https://github.com/dcj/deps-deploy.git"
-                         :sha "49f1da003208d615d52c06164401e6fb3d9ba853"}}
+                         :sha "cf0f5e612eab04789c757a98f544eb8dea61a45b"}}
            :exec-fn deps-deploy.deps-deploy/deploy
            :exec-args {:installer :remote
                        :sign-releases? false
                        :artifact :jar/filename
-                       :repository "acn-snapshots"}}}
-
+                       :repository "acn-snapshots"}}
+  }
  }
