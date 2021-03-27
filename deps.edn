@@ -18,12 +18,12 @@
  {:mvn/artifact-id coerce
   :mvn/group-id    com.dcj
   :mvn/version     "0.1.1-SNAPSHOT"
-  :jar/filename    "coerce.jar"
+  :jar/file-name   "coerce.jar"
 
   :jar {:replace-deps
         {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
         :exec-fn hf.depstar/jar
-        :exec-args {:jar         :jar/filename
+        :exec-args {:jar         :jar/file-name
                     :artifact-id :mvn/artifact-id
                     :group-id    :mvn/group-id
                     :version     :mvn/version
@@ -35,7 +35,7 @@
            :exec-fn deps-deploy.deps-deploy/deploy
            :exec-args {:installer :remote
                        :sign-releases? false
-                       :artifact :jar/filename
+                       :artifact :jar/file-name
                        :repository "acn-snapshots"}}
   }
  }
