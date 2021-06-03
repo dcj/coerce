@@ -7,9 +7,9 @@
  {org.clojure/clojure                 {:mvn/version "1.10.3"}
   clojure.java-time/clojure.java-time {:mvn/version "0.3.2"}
   org.threeten/threeten-extra         {:mvn/version "1.6.0"}
-  org.postgresql/postgresql           {:mvn/version "42.2.19"}
+  org.postgresql/postgresql           {:mvn/version "42.2.20"}
   net.postgis/postgis-jdbc            {:mvn/version "2.5.0"}
-  com.github.seancorfield/next.jdbc   {:mvn/version "1.1.646"}
+  com.github.seancorfield/next.jdbc   {:mvn/version "1.2.659"}
   factual/geo                         {:mvn/version "3.0.1"}
   cheshire/cheshire                   {:mvn/version "5.10.0"}
   }
@@ -21,7 +21,7 @@
   :jar/file-name   "coerce.jar"
 
   :jar {:replace-deps
-        {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
+        {com.github.seancorfield/depstar {:mvn/version "2.0.216"}}
         :exec-fn hf.depstar/jar
         :exec-args {:jar         :jar/file-name
                     :artifact-id :mvn/artifact-id
@@ -29,9 +29,7 @@
                     :version     :mvn/version
                     :sync-pom    true}}
 
-  :deploy {:extra-deps {com.dcj/deps-deploy
-                        {:git/url "https://github.com/dcj/deps-deploy.git"
-                         :sha "cf0f5e612eab04789c757a98f544eb8dea61a45b"}}
+  :deploy {:extra-deps {com.dcj/deps-deploy {:mvn/version "2.0.999-SNAPSHOT"}}
            :exec-fn deps-deploy.deps-deploy/deploy
            :exec-args {:installer :remote
                        :sign-releases? false
