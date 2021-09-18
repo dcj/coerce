@@ -7,7 +7,8 @@
    [next.jdbc.result-set :as result-set]
    [next.jdbc.prepare    :as prepare]
    [geo.io]
-   [cheshire.core :as json]
+   ;; [cheshire.core :as json]
+   [clojure.data.json :as json]
    )
   (:import [org.postgresql.util PGobject]
            ;; [org.postgis]
@@ -20,6 +21,9 @@
            [org.threeten.extra Interval]
            )
   )
+
+;; TODO: Remove cheshire
+
 
 ;;
 ;; multimethod selector for conversion funcs
@@ -37,7 +41,8 @@
   [data json-type]
   (doto (PGobject.)
     (.setType (name json-type))
-    (.setValue (json/generate-string data))))
+    ;; (.setValue (json/generate-string data))))
+    (.setValue (json/write-str data))))
 
 ;;
 ;; Convert Clojure maps to SQL parameter values
@@ -199,12 +204,14 @@
 (defmethod pgobject->clj :json
   [^org.postgresql.util.PGobject x]
   (when-let [val (.getValue x)]
-    (json/parse-string val true)))
+    ;; (json/parse-string val true)))
+    (json/read-str val :key-fn keyword)))
 
 (defmethod pgobject->clj :jsonb
   [^org.postgresql.util.PGobject x]
   (when-let [val (.getValue x)]
-    (json/parse-string val true)))
+    ;; (json/parse-string val true)))
+    (json/read-str val :key-fn keyword)))
 
 ;; PostgreSQL comes with the following built-in range types:
 ;;   int4range — Range of integer

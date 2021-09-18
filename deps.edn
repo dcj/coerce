@@ -5,19 +5,20 @@
 
  :deps
  {org.clojure/clojure                 {:mvn/version "1.10.3"}
+  org.clojure/data.json               {:mvn/version "2.4.0"}
   clojure.java-time/clojure.java-time {:mvn/version "0.3.2"}
   org.threeten/threeten-extra         {:mvn/version "1.6.0"}
   org.postgresql/postgresql           {:mvn/version "42.2.20"}
   net.postgis/postgis-jdbc            {:mvn/version "2.5.0"}
   com.github.seancorfield/next.jdbc   {:mvn/version "1.2.659"}
   factual/geo                         {:mvn/version "3.0.1"}
-  cheshire/cheshire                   {:mvn/version "5.10.0"}
+  ;; cheshire/cheshire                   {:mvn/version "5.10.0"}
   }
 
  :aliases
  {:mvn/artifact-id coerce
   :mvn/group-id    com.dcj
-  :mvn/version     "0.1.1-SNAPSHOT"
+  :mvn/version     "0.1.2-SNAPSHOT"
   :jar/file-name   "coerce.jar"
 
   :jar {:replace-deps
