@@ -12,7 +12,6 @@
   net.postgis/postgis-jdbc            {:mvn/version "2.5.0"}
   com.github.seancorfield/next.jdbc   {:mvn/version "1.2.659"}
   factual/geo                         {:mvn/version "3.0.1"}
-  ;; cheshire/cheshire                   {:mvn/version "5.10.0"}
   }
 
  :aliases
